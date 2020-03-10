@@ -12,7 +12,7 @@ export function getInitialData() {
     ]).then(( [users, questions]) => ({
         users,
         questions
-    }))
+    }));
 }
 
 export function saveQuestion (info) {
