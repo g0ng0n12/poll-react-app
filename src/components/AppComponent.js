@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import NavComponent from '.NavComponent';
+import NavComponent from './NavComponent';
 
 class AppComponent extends Component {
 
@@ -23,7 +23,7 @@ class AppComponent extends Component {
 }
 
 function mapStateToProps(){
-
+    return {}
 }
 
 export default connect(mapStateToProps)(AppComponent)
