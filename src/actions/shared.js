@@ -8,13 +8,13 @@ const AUTHED_ID = 'tylermcginnis'
 
 export function handleInitialData () {
     return (dispatch) => {
-        dispatch(showLoading())
+        dispatch(showLoading());
         return getInitialData()
             .then(({users, questions }) => {
-                dispatch(receieveUsers(users))
-                dispatch(reveiveQuestions(questions))
-                dispatch(setAuthedUser(AUTHED_ID))
-                dispatch(hideLoading())
+                dispatch(receieveUsers(users));
+                dispatch(reveiveQuestions(questions));
+                dispatch(setAuthedUser(AUTHED_ID));
+                dispatch(hideLoading());
             })
     }
 }
