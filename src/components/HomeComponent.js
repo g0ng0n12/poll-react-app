@@ -7,10 +7,20 @@ class HomeComponent extends Component {
     constructor(){
         super();
         this.state = {
-            answeredQuestionActive : false,
-            unAnsweredQuestionActive : true 
+            answeredQuestionActive : true,
+            unAnsweredQuestionActive : false 
         };
+        this.toogleQuestions = this.toogleQuestions.bind(this);
     }
+
+    toogleQuestions() {
+        
+        this.setState({
+            answeredQuestionActive: !this.state.answeredQuestionActive,
+            unAnsweredQuestionActive: !this.state.unAnsweredQuestionActive
+          });
+    }
+
 
     render() {
 
@@ -18,14 +28,14 @@ class HomeComponent extends Component {
             <div>
                 <div className='center'> 
                     <button className='btn' type='submit'
-                    disabled={this.state.unAnsweredQuestionActive}> Unaswererd Questions </button>
+                    onClick={this.toogleQuestions}> Unaswererd Questions </button>
                     <button  className='btn' type='submit'
-                    disabled={this.state.answeredQuestionActive}> Answered Questions </button>
+                     onClick={this.toogleQuestions}> Answered Questions </button>
                 </div>
 
-                { this.state.unansweredQuestions ?
-                    <ListQuestionComponent questions={this.props.questions}/>
-                    : <ListQuestionComponent questions={this.props.questions}/>
+                { this.state.answeredQuestionActive ?
+                    <ListQuestionComponent questions={this.props.unAnsweredQuestions}/>
+                    : <ListQuestionComponent questions={this.props.answeredQuestions}/>
                 }
             </div>
         )
@@ -33,10 +43,17 @@ class HomeComponent extends Component {
 }
 
 function mapStateToProps({questions, authedUser}, props) {
-
+    
+    let questionsArray = Object.keys(questions).map( key => questions[key])
+    let answeredQuestions = questionsArray.filter(question => 
+        question.optionOne.votes.includes(authedUser) ||  question.optionTwo.votes.includes(authedUser));
+    let unAnsweredQuestions = questionsArray.filter(question => 
+        !question.optionOne.votes.includes(authedUser) ||  !question.optionTwo.votes.includes(authedUser)
+    )
 
     return {
-        questions: Object.keys(questions).map( key => questions[key])
+        answeredQuestions:  answeredQuestions,
+        unAnsweredQuestions: unAnsweredQuestions
     }
 }
 
