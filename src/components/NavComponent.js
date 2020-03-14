@@ -20,13 +20,11 @@ export default function NavComponent() {
                         LeaderBoard
                     </NavLink>
                 </li>
-                <li>
-                    {/* TO-DO get The name of the user logged in and add the phrase with avatar */}
-                    <NavLink to='logout' >
-                        Logout
-                    </NavLink>
-                </li>
             </ul>
+            {/* TO-DO get The name of the user logged in and add the phrase with avatar */}
+            <NavLink to='logout' className='profile'>
+                Logout
+            </NavLink>
         </nav>
     )
 }
