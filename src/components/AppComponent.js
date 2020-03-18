@@ -6,6 +6,7 @@ import NavComponent from './NavComponent';
 import HomeComponent from './HomeComponent';
 import AnsweredQuestion from './AnsweredQuestion';
 import UnAnsweredQuestion from './UnAnsweredQuestion';
+import CreateQuestionComponent from './CreateQuestionComponent';
 
 class AppComponent extends Component {
 
@@ -24,6 +25,7 @@ class AppComponent extends Component {
                             <Route exact path="/" component={HomeComponent} />
                             <Route exact path="/question/:id/submit" component={UnAnsweredQuestion}/>
                             <Route exact path="/question/:id" component={AnsweredQuestion}/>
+                            <Route exact path="/new" component={CreateQuestionComponent} />
                         </div>
                     </div>
                 </Fragment>

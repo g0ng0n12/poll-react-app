@@ -17,7 +17,7 @@ class QuestionComponent extends Component {
                             <div className='avatar'>
                                 <img src={user.avatarURL} alt={`Avatar of ${user.name}`} className='avatar' />
                             </div>
-                            <div class='question-details'>
+                            <div className='question-details'>
                                 <h4>Would you Rather</h4>
                                 <p>{question.optionOne.text}</p>
                                 { answeredQuestion ? 
