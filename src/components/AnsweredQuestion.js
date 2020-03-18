@@ -7,7 +7,7 @@ class AnsweredQuestion extends Component {
    
 
     render(){
-        let { authedUser, user, question, optionOnePercentage, optionTwoPercentage } = this.props;
+        let { usersTotal, authedUser, user, question, optionOnePercentage, optionTwoPercentage } = this.props;
         let optionOneBar = {
             width: optionOnePercentage+'%',
             height: '30px',
@@ -46,6 +46,9 @@ class AnsweredQuestion extends Component {
                                 <div id="myProgress" >
                                     <div style={optionOneBar}>{optionOnePercentage}%</div>
                                 </div>
+                                <div>
+                                    <span> {question.optionOne.votes.length + ' out of ' + usersTotal + ' votes'}</span>
+                                </div>
                             </div>
                             <div class='question-result'>
                                 <div className='container'>  
@@ -58,6 +61,9 @@ class AnsweredQuestion extends Component {
                                 <p>{question.optionTwo.text}</p>
                                 <div id="myProgress">
                                     <div style={optionTwoBar}>{optionTwoPercentage}%</div>
+                                </div>
+                                <div>
+                                    <span> {question.optionTwo.votes.length + ' out of ' + usersTotal + ' votes'}</span>
                                 </div>
                             </div>
                         </div>  
