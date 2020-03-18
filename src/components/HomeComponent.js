@@ -28,14 +28,14 @@ class HomeComponent extends Component {
             <div>
                 <div className='center'> 
                     <button className='btn' type='submit'
-                    onClick={this.toogleQuestions}> Unaswererd Questions </button>
+                    onClick={this.toogleQuestions} disabled={this.state.answeredQuestionActive}> Unaswererd Questions </button>
                     <button  className='btn' type='submit'
-                     onClick={this.toogleQuestions}> Answered Questions </button>
+                     onClick={this.toogleQuestions} disabled={this.state.unAnsweredQuestionActive}> Answered Questions </button>
                 </div>
 
                 { this.state.answeredQuestionActive ?
-                    <ListQuestionComponent questions={this.props.unAnsweredQuestions}/>
-                    : <ListQuestionComponent questions={this.props.answeredQuestions}/>
+                    <ListQuestionComponent questions={this.props.unAnsweredQuestions} answeredQuestions={false}/>
+                    : <ListQuestionComponent questions={this.props.answeredQuestions}  answeredQuestions={true}/>
                 }
             </div>
         )

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link, withRouter } from 'react-router-dom';
 
 
 
@@ -7,7 +8,7 @@ class QuestionComponent extends Component {
 
 
     render(){
-        let { user, question } = this.props;
+        let { user, question, answeredQuestion } = this.props;
         return(
             <div>
                 { user  &&
@@ -20,7 +21,10 @@ class QuestionComponent extends Component {
                             <div class='question-details'>
                                 <h4>Would you Rather</h4>
                                 <p>{question.optionOne.text}</p>
-                                <button className='btn' type='submit'>View Poll</button>
+                                { answeredQuestion ? 
+                                    <Link to={`/question/${question.id}`}>View Question Answered</Link> :
+                                    <Link to={`/question/${question.id}/submit`} >Answer Question</Link>
+                                }
                             </div>
                         </div>
                     </div>

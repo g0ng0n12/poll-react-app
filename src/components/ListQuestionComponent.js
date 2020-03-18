@@ -6,11 +6,12 @@ import QuestionComponent from './QuestionComponent';
 class ListQuestionComponent extends Component {
 
     render(){
-        let  questions = this.props.questions;
+        let  {questions, answeredQuestions } = this.props;
+        console.log(answeredQuestions)
         return(
             <div className='container center'> 
                 { questions && questions.map( question => (
-                    <QuestionComponent key={question.id} question={question} /> )
+                    <QuestionComponent key={question.id} question={question} answeredQuestion={this.props.answeredQuestions}/> )
                 )} 
             </div>
         )
