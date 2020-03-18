@@ -24,7 +24,10 @@ body {
   border-radius: 25px;
   margin: 10px;
 }
-
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+}
 
 .btn {
   text-transform: uppercase;

@@ -6,7 +6,7 @@ class UnAnsweredQuestion extends Component {
     render(){
         return(
             <div>
-
+                potas
             </div>
         );
     }

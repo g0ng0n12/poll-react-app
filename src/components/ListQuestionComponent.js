@@ -7,7 +7,6 @@ class ListQuestionComponent extends Component {
 
     render(){
         let  {questions, answeredQuestions } = this.props;
-        console.log(answeredQuestions)
         return(
             <div className='container center'> 
                 { questions && questions.map( question => (

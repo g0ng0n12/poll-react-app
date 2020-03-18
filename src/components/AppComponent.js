@@ -4,6 +4,8 @@ import { handleInitialData } from '../actions/shared';
 import { connect } from 'react-redux';
 import NavComponent from './NavComponent';
 import HomeComponent from './HomeComponent';
+import AnsweredQuestion from './AnsweredQuestion';
+import UnAnsweredQuestion from './UnAnsweredQuestion';
 
 class AppComponent extends Component {
 
@@ -20,6 +22,8 @@ class AppComponent extends Component {
                         <div>
                             {/* To-Do Add Routes */}
                             <Route exact path="/" component={HomeComponent} />
+                            <Route exact path="/question/:id/submit" component={UnAnsweredQuestion}/>
+                            <Route exact path="/question/:id" component={AnsweredQuestion}/>
                         </div>
                     </div>
                 </Fragment>

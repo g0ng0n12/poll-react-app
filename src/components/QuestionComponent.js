@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 
 
-
 class QuestionComponent extends Component {
 
 
@@ -22,8 +21,8 @@ class QuestionComponent extends Component {
                                 <h4>Would you Rather</h4>
                                 <p>{question.optionOne.text}</p>
                                 { answeredQuestion ? 
-                                    <Link to={`/question/${question.id}`}>View Question Answered</Link> :
-                                    <Link to={`/question/${question.id}/submit`} >Answer Question</Link>
+                                    <Link to={`/question/${question.id}`} >View Question Answered</Link> :
+                                    <Link to={`/question/${question.id}/submit`}>Answer Question</Link>
                                 }
                             </div>
                         </div>
@@ -42,4 +41,4 @@ function mapStateToProps({users, authedUser}, props) {
     }
 }
 
-export default connect(mapStateToProps)(QuestionComponent);
+export default withRouter(connect(mapStateToProps)(QuestionComponent));
