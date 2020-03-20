@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-
 class AnsweredQuestion extends Component {
-
-   
 
     render(){
         let { usersTotal, authedUser, user, question, optionOnePercentage, optionTwoPercentage } = this.props;
@@ -35,7 +32,7 @@ class AnsweredQuestion extends Component {
                             <img src={user.avatarURL} alt={`Avatar of ${user.name}`} className='avatar' />
                         </div>
                         <div>
-                            <div class='question-result'>
+                            <div className='question-result'>
                                 <div className='container'>  
                                     { question.optionOne.votes.includes(authedUser) &&
                                         <span> YOU VOTED THIS </span>
@@ -50,7 +47,7 @@ class AnsweredQuestion extends Component {
                                     <span> {question.optionOne.votes.length + ' out of ' + usersTotal + ' votes'}</span>
                                 </div>
                             </div>
-                            <div class='question-result'>
+                            <div className='question-result'>
                                 <div className='container'>  
                                     {   
                                         question.optionTwo.votes.includes(authedUser) &&

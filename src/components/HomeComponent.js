@@ -13,6 +13,7 @@ class HomeComponent extends Component {
         this.toogleQuestions = this.toogleQuestions.bind(this);
     }
 
+
     toogleQuestions() {
         
         this.setState({
@@ -43,8 +44,8 @@ class HomeComponent extends Component {
 }
 
 function mapStateToProps({questions, authedUser}, props) {
-    
     let questionsArray = Object.keys(questions).map( key => questions[key])
+    console.log(questionsArray)
     let answeredQuestions = questionsArray.filter(question => 
         question.optionOne.votes.includes(authedUser) ||  question.optionTwo.votes.includes(authedUser));
     let unAnsweredQuestions = questionsArray.filter(question => 
